@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movie stalker{% endblock %}
+
+{% block content %}
+
+<div class="container center">
+    <form method="GET">
+        <label> Movie Name </label>
+        <input name="movie_name" type"text" placeholder="Movie Name">
+        
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+
+        </br></br>
+
+    <form method="GET">
+    <label> actor:<label>
+    <input name="actor" type="text" placeholder="actor">
+    <button type="submit">search  by actor</button>
+    </form> 
+
+
+</div></br></br></br>
+
+
+<div class="container center">
+<ul> 
+    {% for movie in movies %} 
+        <li> {{ movie.original_title}} </li></br>
+        <a>Resumé du film</a>
+        <p>{{movie.overview}} </p></br>
+        <li> <img src="http://image.tmdb.org/t/p/w200/{{movie.poster_path}}"/></li>
+        <a class="waves-effect waves-teal btn-flat"><i class="large material-icons">favorite_border</i> Add to list</a></br></br>
+
+     {% endfor %}
+</ul> 
+</div
+
+{% endblock %}
